@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="620.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vallegrande.intrumentosmusicales.controller.HelloController">
+    <top>
+        <VBox alignment="CENTER" style="-fx-background-color: #1e293b; -fx-padding: 15;">
+            <Label text="SISTEMA DE GESTIÓN DE INSTRUMENTOS MUSICALES" textFill="WHITE">
+                <font>
+                    <Font name="System Bold" size="20.0" />
+                </font>
+            </Label>
+        </VBox>
+    </top>
+    <left>
+        <VBox prefWidth="310.0" spacing="10.0" style="-fx-background-color: #f8fafc; -fx-border-color: #cbd5e1; -fx-border-width: 0 1 0 0;">
+            <padding>
+                <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+            </padding>
+            <Label text="Datos del Instrumento" textFill="#0f172a">
+                <font>
+                    <Font name="System Bold" size="15.0" />
+                </font>
+            </Label>
+
+            <TextField fx:id="txtId" disable="true" promptText="ID (Automático)" />
+            <TextField fx:id="txtNombre" promptText="Nombre (Ej. Guitarra Eléctrica)" />
+            <TextField fx:id="txtMarca" promptText="Marca (Ej. Fender)" />
+            <TextField fx:id="txtTipo" promptText="Tipo (Ej. Cuerda, Percusión)" />
+            <TextField fx:id="txtModelo" promptText="Modelo (Ej. Stratocaster)" />
+            <TextField fx:id="txtPrecio" promptText="Precio (Ej. 1500.00)" />
+            <TextField fx:id="txtStock" promptText="Stock (Ej. 10)" />
+            <TextField fx:id="txtProveedor" promptText="Proveedor (Ej. AudioPro)" />
+
+            <HBox alignment="CENTER" spacing="10.0">
+                <Button onAction="#onRegistrar" prefWidth="130.0" style="-fx-background-color: #16a34a; -fx-text-fill: white; -fx-font-weight: bold;" text="Registrar" />
+                <Button onAction="#onActualizar" prefWidth="130.0" style="-fx-background-color: #2563eb; -fx-text-fill: white; -fx-font-weight: bold;" text="Actualizar" />
+            </HBox>
+            <HBox alignment="CENTER" spacing="10.0">
+                <Button onAction="#onEliminar" prefWidth="130.0" style="-fx-background-color: #dc2626; -fx-text-fill: white; -fx-font-weight: bold;" text="Eliminar" />
+                <Button onAction="#onLimpiar" prefWidth="130.0" style="-fx-background-color: #64748b; -fx-text-fill: white; -fx-font-weight: bold;" text="Limpiar" />
+            </HBox>
+        </VBox>
+    </left>
+    <center>
+        <VBox spacing="10.0">
+            <padding>
+                <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+            </padding>
+            <Label text="Inventario Registrado (Haz clic en una fila para editar o eliminar)" textFill="#334155">
+                <font>
+                    <Font name="System Bold" size="13.0" />
+                </font>
+            </Label>
+            <TableView fx:id="tablaInstrumentos" onMouseClicked="#onSeleccionarFila" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="colId" prefWidth="45.0" text="ID" />
+                    <TableColumn fx:id="colNombre" prefWidth="120.0" text="Nombre" />
+                    <TableColumn fx:id="colMarca" prefWidth="85.0" text="Marca" />
+                    <TableColumn fx:id="colTipo" prefWidth="85.0" text="Tipo" />
+                    <TableColumn fx:id="colModelo" prefWidth="95.0" text="Modelo" />
+                    <TableColumn fx:id="colPrecio" prefWidth="70.0" text="Precio" />
+                    <TableColumn fx:id="colStock" prefWidth="55.0" text="Stock" />
+                    <TableColumn fx:id="colProveedor" prefWidth="110.0" text="Proveedor" />
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+</BorderPane>
